@@ -25,6 +25,7 @@ public class Person extends AllUsers{
     }
 
     void display() {
+        System.out.println("\t USER DETAILS");
         System.out.println("Age : "+this.userAge);
         System.out.println("Email : "+this.userEmail);
     }

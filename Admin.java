@@ -10,8 +10,7 @@ public class Admin extends Person{
         this.adminPassword.append(passw);
     }
     public void display() {
-        System.out.println("\tADMIN USER");
-        System.out.println("Name : "+this.adminName);
         super.display();
+        System.out.println("Name : "+this.adminName);
     }
 }

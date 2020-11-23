@@ -33,24 +33,42 @@ public class User extends Person{
     }
 
     public void display() {
-        System.out.println("Name : "+this.userName);
         super.display();
+        System.out.println("Name : "+this.userName);
         System.out.println("Balance : "+this.userBalance);
     }
     public void read() {
         Scanner sc= new Scanner(System.in);
-        
-        System.out.print("Enter Age : ");  
-        this.userAge= sc.nextInt();
         System.out.print("Enter Email :");  
         this.userEmail= sc.nextLine();
         System.out.print("Enter Name : ");  
         this.userName= sc.nextLine();
         System.out.print("Enter Password :");  
         this.userPassword.append(sc.nextLine());
+        System.out.print("Enter Age : ");  
+        this.userAge= sc.nextInt();
+        try{
+            validateAge(this.userAge);
+        }catch(Exception n){System.out.println("invalid age");this.userAge=0;};
         sc.close();
     }
     public static void displayCount() {
         System.out.println(User.count + " Users are currently registered.");
     }
+
+    static void validateAge(int age)throws InvalidAgeException{  
+        if(age<18){
+            throw new InvalidAgeException("not valid");
+        }  
+        else{
+            System.out.println("Data Entered Successfully");
+        }  
+      }
 }
+
+class InvalidAgeException extends Exception{  
+    InvalidAgeException(String s){  
+     super(s);
+    }
+}
+
